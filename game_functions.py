@@ -47,24 +47,23 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 def create_fleet(ai_settings, screen, aliens):
-     #Create a full fleet of aliens.
+
+    #"""Create a full fleet of aliens."""
        # Create an alien and find the number of aliens in a row.
-       # Spacing between each alien is equal to one alien width
+       # Spacing between each alien is equal to one alien width.
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
     available_space_x = ai_settings.screen_width - 2 * alien_width
     number_aliens_x = int(available_space_x / (2 * alien_width))
 
-    
-    
-       # Create the first row of aliens.
+    # Create the first row of aliens.
     for alien_number in range(number_aliens_x):
-        alien = Alien(ai_settings, screen)
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        aliens.add(alien)
+           # Create an alien and place it in the row.
+           alien = Alien(ai_settings, screen)
+           alien.x = alien_width + 2 * alien_width * alien_number
+           alien.rect.x = alien.x
+           aliens.add(alien)
 
-   
 
 
 
@@ -79,7 +78,7 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
     
     
     screen.fill(ai_settings.bg_color)
-    for bullet in bullets.sprites():
+    for bullet in bullets:
         bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
