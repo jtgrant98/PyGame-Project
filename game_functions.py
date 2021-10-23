@@ -64,19 +64,24 @@ def get_number_rows(ai_settings, ship_height, alien_height):
 
 def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
        #"""Respond to ship being hit by alien."""
+       if stats.ships_left > 0:
+           f
        # Decrement ships_left.
-       stats.ships_left -= 1
+           stats.ships_left -= 1
        
        # Empty the list of aliens and bullets.
-       aliens.empty()
-       bullets.empty()
+           aliens.empty()
+           bullets.empty()
 
        # Create a new fleet and center the ship.
-       create_fleet(ai_settings, screen, ship, aliens)
-       ship.center_ship()
+           create_fleet(ai_settings, screen, ship, aliens)
+           ship.center_ship()
 
        # Pause.
-       sleep(0.5)
+           sleep(0.5)
+       else:
+           stats.game_active = False
+ 
 
 
 
