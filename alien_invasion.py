@@ -23,20 +23,21 @@ def run_game():
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
-        gf.check_events(ai_settings, screen, ship, bullets)
-        ship.update()
-        gf.update_bullets(bullets)
+      gf.check_events(ai_settings, screen, ship, bullets)
+      ship.update()
+      bullets.update()
+      gf.update_screen(ai_settings, screen, ship, bullets)
 
-
+        
         # Get rid of bullets that have disappeared.
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
+      for bullet in bullets.copy():
+          if bullet.rect.bottom <= 0:
                  bullets.remove(bullet)
-        print(len(bullets))
+      print(len(bullets))
         
         
-        
-        gf.update_screen(ai_settings, screen, ship, bullets)
+      gf.update_screen(ai_settings, screen, ship, bullets)
+       
 
         
         
