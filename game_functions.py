@@ -140,7 +140,7 @@ def create_fleet(ai_settings, screen, ship, aliens):
 
 
 
-def update_screen(ai_settings, screen, ship, aliens, bullets):
+def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
     #Update images on the screen and flip to the new screen.
     # Redraw the screen during each pass through the loop.
     
@@ -152,6 +152,11 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
         bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
+
+    # Draw the play button if the game is inactive.
+    if not stats.game_active:
+        play_button.draw_button()
+
     # Make the most recently drawn screen visible.
     pygame.display.flip()
 
